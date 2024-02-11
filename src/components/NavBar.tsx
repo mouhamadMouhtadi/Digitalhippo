@@ -8,16 +8,18 @@ import Cart from "./Cart";
 import { cookies } from "next/headers";
 import { getServerSideUser } from "@/lib/payload-utils";
 import UserAccountNav from "./UserAccountNav";
+import MobileNav from "./MobileNav";
 const NavBar = async () => {
   const nextCookies = cookies();
   const { user } = await getServerSideUser(nextCookies);
   return (
-    <div className="bg-white sticky -50 top-0 h-16 inset-x-0">
+    <div className="bg-white sticky z-50 top-0 h-16 inset-x-0">
       <header className="bg-white relative">
         <MaxWidthWrapper>
           {/* logo and Ui-kits, Icons */}
           <div className="border-b border-gray-200">
             <div className="flex h-16 items-center">
+              <MobileNav />
               {/* TODO: Mobile nav */}
               <div className="ml-4 flex lg:ml-0">
                 <Link href="/">
